@@ -1,46 +1,35 @@
-#Список вопросов с ответами
-questions = ["My name ___  Vova", "I ___ a coder", "I live ___ Moscow"]
-answers = ["is", "am", "in"]
-def is_valid(ans):
-    """Функция проверяющая валидность ответа для старта"""
-    if ans.lower() != 'ready':
-        print("Кажется, вы не хотите играть. Очень жаль.")
-        return False
-    else:
-        return True
+# def average_list(list1):
+#     avr_num = sum(list1) // len(list1)
+#     avr_list = [num for num in list1 if num < avr_num]
+#
+#     return avr_list
+#
+#
+# print(average_list([1, 2, 3, 4, 5]))
+#
+# def only_unique_strings(list1):
+#     return list(set(list1))
+#
+#
+# print(only_unique_strings(['apple', 'banana', 'orange', 'apple']))
+#
+# def sorted_by_descending_price(my_list):
+#     return sorted(my_list, key=lambda x: x[1], reverse=True)
+#
+#
+# print(sorted_by_descending_price([("apple", 2.5), ("banana", 3.5), ("orange", 1.5), ("cherry", 2), ("melon", 2.7)]))
+#
 
-def begin_answer(questions, answer):
-    """Программа теста вопрос-ответ"""
-    counter, score = 0, 0
-    #Цикл вопросов
-    for i in range(len(questions)):
-        print(questions[i])
-        user_answer = input('Ваш ответ: ')
+def filter_genre(my_list, genre):
+    new_list = [elem for elem in my_list if elem["genre"] == genre]
+    return new_list
 
-        if user_answer != answer[i]: #Проверка правильности ответов
-            print(f'Неправильно.\nПравильный ответ: {answer[i]}')
-            print()
-        else:
-            print('Ответ верный!\nВы получаете 10 баллов!')
-            print()
-            counter += 1
-            score += 10
 
-    precent_responses = counter / len(questions) * 100
-    return end_test(counter, score, precent_responses)
+films =[
+    {"title": 'The Shawshank Redemption', "genre": 'Drama', "director": 'Frank Darabont'},
+    {"title": 'The Godfather', "genre": 'Crime', "director": 'Francis Ford Coppola'},
+    {"title": 'The Dark Knight', "genre": 'Action', "director": 'Christopher Nolan'}
+]
 
-def end_test(counter, score, precent_responses):
-    """Подсчет итогов"""
-    print(f"""Вот и всё. \
-Вы ответили на {counter} вопросов из 3 верно.
-Вы заработали {score} баллов.
-Это {round(precent_responses,2)} процентов.""")
-#Приветственное слово
-print("""Привет!
-Предлагаю проверить свои знания английского!
-""")
-#Запуск программы
-start = input('Наберите "ready", чтобы начать!\n> ')
-if is_valid(start) == True:
-    begin_answer(questions, answers)
-
+genre = 'Drama'
+print(filter_genre(films, genre))
