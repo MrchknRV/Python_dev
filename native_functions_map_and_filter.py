@@ -1,4 +1,5 @@
 def map(function, items):
+    """Собственная реализация встроенной функции map"""
     result = []
     for item in items:
         result.append(function(item))
@@ -6,6 +7,7 @@ def map(function, items):
 
 
 def filter(function, items):
+    """Собственная реализация встроенной функции filter"""
     result = []
     for item in items:
         if function(item):
